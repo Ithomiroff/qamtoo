@@ -1,0 +1,32 @@
+@import "normalize";
+
+:root {
+    --main-font: #202A53;
+    --dark-blue: #14008E;
+    --additional-font: #3D4977;
+    --basic-font: rgba(28, 33, 53, 0.38);
+    --lines: rgba(196, 196, 196, 0.3);
+    --blue: #5669FF;
+    --light-blue: #5E45F9;
+    --attention: #29A9D6;
+    --yellow: #FBBC3B;
+    --green: #00C48C;
+    --error: #FF647C;
+    --black: #171D25;
+    --dark-gray: #50555C;
+    --dark-gray-blue: #999CAD;
+    --light-gray: #DADADA;
+    --light-gray-background: #EFF0F5;
+    --background: #FFFFFF;
+    --dark-gradient: linear-gradient(90deg, #5E45F9 0%, #14008E 100%);
+    --light-gradient: linear-gradient(270deg, #5E45F9 0%, #6FBAFC 95.89%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    background-color: var(--light-gray-background);
+}
