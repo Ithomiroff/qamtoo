@@ -2,13 +2,13 @@ import { useDevice } from "@/hooks/useDevice";
 import dynamic from "next/dynamic";
 
 const LazyDesktopPage = dynamic(() => {
-  return import('./search/desktop/SearchPage').then(com => com.SearchPage);
+  return import('home/desktop/HomePage').then(com => com.HomePage);
 });
 
 const LazyMobilePage = dynamic(() => {
-  return import('./search/mobile/SearchPage').then(com => com.SearchPage);
+  return import('home/mobile/HomePage').then(com => com.HomePage);
 });
-async function Search() {
+async function Home() {
   const device = useDevice();
 
   return (
@@ -22,4 +22,4 @@ async function Search() {
   )
 }
 
-export default Search;
+export default Home;

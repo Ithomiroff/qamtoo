@@ -9,39 +9,52 @@ import { Container } from "@/kit/components/Container";
 import { SearchField } from "@/layouts/Desktop/SearchField";
 import { CitySelection } from "@/layouts/Desktop/CitySelection";
 import { ActionsToolbar } from "@/layouts/Desktop/ActionsToolbar/ActionsToolbar";
+import { useAppDispatch } from "@/store";
+import { useCallback } from "react";
+import * as eventsSlice from '@/store/events';
 
 
-const Toolbar = () => (
-  <styled.Header>
-    <Container>
-      <styled.HeaderInner>
-        <Link href="/">
-          <Image
-            src="/images/logo.svg"
-            height={40}
-            width={171}
-            alt="QAMTOO мероприятия"
+const Toolbar = () => {
+
+  const dispatch = useAppDispatch();
+
+  const toggleFilters = () => {
+    dispatch(eventsSlice.toggleExtendedFilters());
+  };
+
+  return (
+    <styled.Header>
+      <Container>
+        <styled.HeaderInner>
+          <Link href="/">
+            <Image
+              src="/images/logo.svg"
+              height={40}
+              width={171}
+              alt="QAMTOO мероприятия"
+            />
+          </Link>
+
+          <styled.InputWrapper>
+            <Button
+              variant="rounded"
+              icon="filters"
+              onClick={toggleFilters}
+            />
+
+            <SearchField/>
+          </styled.InputWrapper>
+
+          <CitySelection/>
+
+          <ActionsToolbar
+            authed={false}
           />
-        </Link>
-
-        <styled.InputWrapper>
-          <Button
-            variant="rounded"
-            icon="filters"
-          />
-
-          <SearchField/>
-        </styled.InputWrapper>
-
-        <CitySelection/>
-
-        <ActionsToolbar
-          authed={false}
-        />
-      </styled.HeaderInner>
-    </Container>
-  </styled.Header>
-)
+        </styled.HeaderInner>
+      </Container>
+    </styled.Header>
+  );
+};
 
 export {
   Toolbar

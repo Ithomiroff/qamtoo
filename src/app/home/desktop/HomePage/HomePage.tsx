@@ -3,14 +3,13 @@
 import { Page } from "@/kit/components/Page";
 import { Container } from "@/kit/components/Container";
 import * as style from './styled';
-import { Button } from "@/kit/components/Button";
-import { EventsList } from "@/app/search/desktop/EventsList";
+import { EventsList } from "@/app/home/desktop/EventsList";
 import { Typography } from "@/kit/components/Typography";
-import { EmptyResultText } from "@/app/search/styled";
-import { useSearchFilter } from "@/app/search/hooks/useSearchFilter";
+import { EmptyResultText } from "@/app/home/styled";
+import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";
 
 
-const SearchPage = () => {
+const HomePage = () => {
 
   const {
     eventsList,
@@ -37,5 +36,5 @@ const SearchPage = () => {
 };
 
 export {
-  SearchPage
+  HomePage
 };

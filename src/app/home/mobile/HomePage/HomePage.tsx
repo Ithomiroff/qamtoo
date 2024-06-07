@@ -8,11 +8,11 @@ import { TextField } from "@/kit/components/TextField";
 import SearchIcon from "@/assets/icons/search.svg";
 import FiltersIcon from "@/assets/icons/filters.svg";
 import { EventCard } from "@/kit/components/EventCard";
-import { EmptyResultText } from "@/app/search/styled";
+import { EmptyResultText } from "@/app/home/styled";
 import { Typography } from "@/kit/components/Typography";
-import { useSearchFilter } from "@/app/search/hooks/useSearchFilter";
+import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";
 
-const SearchPage = () => {
+const HomePage = () => {
 
   const {
     eventsList,
@@ -52,5 +52,5 @@ const SearchPage = () => {
 };
 
 export {
-  SearchPage
+  HomePage
 };

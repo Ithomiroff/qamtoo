@@ -7,12 +7,14 @@ export type EventsState = {
   events: EventDto[];
   query: string;
   additionalFilters: Record<string, string | boolean>;
+  extendedFiltersActive: boolean;
 };
 
 const initialState: EventsState = {
   events: [],
   query: '',
   additionalFilters: { isPublish: true },
+  extendedFiltersActive: false,
 };
 
 const eventsSlice = createSlice({
@@ -30,6 +32,9 @@ const eventsSlice = createSlice({
         ...state.additionalFilters,
         [action.payload.key]: action.payload.value
       }
+    },
+    toggleExtendedFilters: (state: EventsState) => {
+      state.extendedFiltersActive = !state.extendedFiltersActive;
     },
   },
   extraReducers: (builder) => {
@@ -70,5 +75,6 @@ export const {
   init,
   changeFilter,
   changeQuery,
+  toggleExtendedFilters,
 } = eventsSlice.actions;
 export default eventsSlice.reducer;
