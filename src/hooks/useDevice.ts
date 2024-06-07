@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
-import { Device } from "@/meta/types";
+import { Device } from "@/common/types";
+
 
 export const useDevice = (): Device => {
   const headersList = headers();

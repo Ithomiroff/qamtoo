@@ -1,12 +1,16 @@
 import * as styled from './styled';
+import * as eventsSlice from '@/store/events';
 import { SearchResults } from "./SearchResults";
 import { SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Portal } from "@/kit/components/Portal";
 import SearchIcon from "@/assets/icons/search.svg";
+import { useAppDispatch, useAppSelector } from "@/store";
 
 const SearchField = () => {
 
-  const [query, setQuery] = useState('');
+  const dispatch = useAppDispatch();
+  const query = useAppSelector(eventsSlice.queryFilterSelector);
+
 
   const [open, setOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<{ x: number; y: number; size: number }>({ x: 0, y: 0, size: 0 })
@@ -44,12 +48,13 @@ const SearchField = () => {
 
   const handleSearch = useCallback(async (event: SyntheticEvent) => {
     event.preventDefault();
-    // setQuery()
-  }, []);
+    // @ts-ignore
+    dispatch(eventsSlice.fetchFilteredEvents());
+  }, [dispatch]);
 
   const handleChangeQuery = useCallback((event: SyntheticEvent) => {
-    setQuery((event.target as HTMLInputElement).value);
-  }, [setQuery]);
+    dispatch(eventsSlice.changeQuery((event.target as HTMLInputElement).value));
+  }, [dispatch]);
 
   return (
     <>

@@ -8,35 +8,21 @@ import { TextField } from "@/kit/components/TextField";
 import SearchIcon from "@/assets/icons/search.svg";
 import FiltersIcon from "@/assets/icons/filters.svg";
 import { EventCard } from "@/kit/components/EventCard";
-import { EventDto } from "@/api/search";
-import { useSearchFilter } from "@/app/search/hooks/useSearchFilter";
-import { EventsList } from "@/app/search/desktop/EventsList";
 import { EmptyResultText } from "@/app/search/styled";
 import { Typography } from "@/kit/components/Typography";
+import { useSearchFilter } from "@/app/search/hooks/useSearchFilter";
 
-type Props = {
-  events: EventDto[];
-};
-const SearchPage = ({ events }: Props) => {
-
+const SearchPage = () => {
 
   const {
-    filter,
-    filteredEvents,
-    handleToggleType
-  } = useSearchFilter(events);
+    eventsList,
+    ButtonsLayout,
+  } = useSearchFilter();
 
   return (
     <Container>
       <style.Filters>
-        <Button
-          variant={filter.type === 'online' ? 'filled' : 'disabled'}
-          onClick={handleToggleType}
-        >Живые</Button>
-        <Button
-          variant={filter.type === 'offline' ? 'filled' : 'disabled'}
-          onClick={handleToggleType}
-        >Онлайн</Button>
+        <ButtonsLayout/>
       </style.Filters>
       <style.SearchField>
         <TextField
@@ -47,9 +33,9 @@ const SearchPage = ({ events }: Props) => {
           <FiltersIcon/>
         </Button>
       </style.SearchField>
-      {filteredEvents.length > 0 ? (
+      {eventsList.length > 0 ? (
         <style.EventsList>
-          {filteredEvents.map((item) => (
+          {eventsList.map((item) => (
             <EventCard
               key={item._id}
               value={item}

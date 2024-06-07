@@ -9,8 +9,8 @@ const DesktopLayout = (props: PropsWithChildren<LayoutProps>) => {
 
   return (
     <style.Body className={props.classNameFont}>
-      <Toolbar/>
-      <main>{props.children}</main>
+        <Toolbar/>
+        <main>{props.children}</main>
     </style.Body>
   )
 };

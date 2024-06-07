@@ -5,38 +5,27 @@ import { Container } from "@/kit/components/Container";
 import * as style from './styled';
 import { Button } from "@/kit/components/Button";
 import { EventsList } from "@/app/search/desktop/EventsList";
-import { EventDto } from "@/api/search";
 import { Typography } from "@/kit/components/Typography";
 import { EmptyResultText } from "@/app/search/styled";
-import { useCallback } from "react";
+import { useSearchFilter } from "@/app/search/hooks/useSearchFilter";
 
-type Props = {
-  events: EventDto[];
-};
 
-const SearchPage = ({ events }: Props) => {
+const SearchPage = () => {
 
-  const type = 'online';
-
-  const handleToggleType = useCallback(() => {
-  }, []);
+  const {
+    eventsList,
+    ButtonsLayout,
+  } = useSearchFilter();
 
   return (
     <Container>
       <Page title="Афиша мероприятий в Нижнем новгороде">
         <style.Filters>
-          <Button
-            variant={type === 'online' ? 'filled' : 'disabled'}
-            onClick={handleToggleType}
-          >Живые</Button>
-          <Button
-            variant={type === 'offline' ? 'filled' : 'disabled'}
-            onClick={handleToggleType}
-          >Онлайн</Button>
+          <ButtonsLayout/>
         </style.Filters>
 
-        {events.length > 0 ? (
-          <EventsList list={events}/>
+        {eventsList.length > 0 ? (
+          <EventsList list={eventsList}/>
           ) : (
           <EmptyResultText>
             <Typography variant="3">Ничего не найдено</Typography>

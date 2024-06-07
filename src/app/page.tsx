@@ -1,17 +1,24 @@
 import { useDevice } from "@/hooks/useDevice";
-import { getEvents } from "@/api/search";
-import { SearchPage as DesktopPage } from "@/app/search/desktop/SearchPage";
-import { SearchPage as MobilePage } from "@/app/search/mobile/SearchPage";
+import dynamic from "next/dynamic";
 
+const LazyDesktopPage = dynamic(() => {
+  return import('./search/desktop/SearchPage').then(com => com.SearchPage);
+});
+
+const LazyMobilePage = dynamic(() => {
+  return import('./search/mobile/SearchPage').then(com => com.SearchPage);
+});
 async function Search() {
-
-  const eventsList = await getEvents();
   const device = useDevice();
 
-  return device === 'desktop' ? (
-    <DesktopPage events={eventsList} />
-  ) : (
-    <MobilePage events={eventsList} />
+  return (
+    <>
+      {device === 'desktop' ? (
+        <LazyDesktopPage />
+      ) : (
+        <LazyMobilePage />
+      )}
+    </>
   )
 }
 

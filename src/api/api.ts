@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 
 class Api {
   private instance: AxiosInstance;
@@ -9,10 +9,12 @@ class Api {
     });
   }
 
-  get = <R>(url: string, params?: Record<string, any>) => this.instance.get<R>(url, { params}).then(res => res.data as R);
-  post = <Req, Res>(url: string, body: Req) => this.instance.post<Req, Res>(url, body).then(res => res.data);
+  get = <Res>(url: string, params?: Record<string, any>) => this.instance.get(url, { params}).then(res => res.data as Res);
+  post = <Req, Res>(url: string, body: Req) => this.instance.post<Req, AxiosResponse<Res>>(url, body)
+    .then(res => res.data as Res);
 
-  put = <Req, Res>(url: string, body: Req) => this.instance.put<Req, Res>(url, body).then(res => res.data);
+  put = <Req, Res>(url: string, body: Req) => this.instance.put<AxiosResponse<Res>>(url, body)
+    .then(res => res.data as Res);
 }
 
 export default new Api('http://89.111.172.165:3000');
