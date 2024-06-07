@@ -3,11 +3,14 @@ import { Typography } from "@/kit/components/Typography";
 import LocationIcon from "@/assets/icons/location.svg";
 import CalendarIcon from "@/assets/icons/calendar.svg";
 import FavoriteIcon from "@/assets/icons/favorite.svg";
+import { EventDto } from "@/api/search";
+import { toEventDate } from "@/kit/utils/date";
 
 type Props = {
   mobile?: boolean;
+  value: EventDto;
 };
-const EventCard = ({ mobile = false }: Props) => {
+const EventCard = ({ mobile = false, value }: Props) => {
 
   return (
     <style.EventCardStyled>
@@ -16,13 +19,13 @@ const EventCard = ({ mobile = false }: Props) => {
           <style.ImageWrapper>
             <style.Image src="/phote.png"/>
             <style.Badge $mobile={!!mobile}>
-              <Typography variant={mobile ? 'small' : '5'}>12 +</Typography>
+              <Typography variant={mobile ? 'small' : '5'}>{value.min_age} +</Typography>
             </style.Badge>
             <style.Badge
               $mobile={!!mobile}
               $bottom={true}
             >
-              <Typography variant={mobile ? 'small' : '5'}>от 1 300 ₽</Typography>
+              <Typography variant={mobile ? 'small' : '5'}>от {value.detail.price} ₽</Typography>
             </style.Badge>
             <style.BadgeButton
               $mobile={!!mobile}
@@ -40,14 +43,15 @@ const EventCard = ({ mobile = false }: Props) => {
           {/*</style.ImageWrapper>*/}
         </style.Images>
         <style.Description>
-          <Typography variant={mobile ? 'text' : '4'}>Битва хитов — Michael Jackson против Queen группы</Typography>
+          <Typography variant={mobile ? 'text' : '4'}>{value.name}</Typography>
           <style.Detail>
             {!mobile && (
               <style.Icon>
                 <CalendarIcon/>
               </style.Icon>
             )}
-            <style.Text>8 марта—12 марта | 14:30</style.Text>
+            <style.Text>{toEventDate(value.detail.start_day, value.detail.end_day)}</style.Text>
+            {/*<style.Text>8 марта—12 марта | 14:30</style.Text>*/}
           </style.Detail>
 
           <style.Detail>
@@ -56,7 +60,7 @@ const EventCard = ({ mobile = false }: Props) => {
                 <LocationIcon/>
               </style.Icon>
             )}
-            <style.Text>г. Москва, ул. Красноармейская, 110</style.Text>
+            <style.Text>{value.detail.address}</style.Text>
           </style.Detail>
         </style.Description>
       </style.Inner>

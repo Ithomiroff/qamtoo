@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   background-color: var(--background);
   border-radius: ${toRem(16)};
   overflow: hidden;

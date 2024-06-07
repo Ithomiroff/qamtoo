@@ -3,6 +3,9 @@ const toRem = (px: number | string, base: number = 16) => {
   return (1 / base) * parseInt(tempPx) + 'rem'
 };
 
+const isServerEnv = () => typeof window === 'undefined';
+
 export {
-  toRem
+  toRem,
+  isServerEnv
 };

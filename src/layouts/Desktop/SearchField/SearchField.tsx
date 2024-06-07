@@ -1,15 +1,16 @@
 import * as styled from './styled';
-import Image from "next/image";
 import { SearchResults } from "./SearchResults";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Portal } from "@/kit/components/Portal";
 import SearchIcon from "@/assets/icons/search.svg";
 
 const SearchField = () => {
 
+  const [query, setQuery] = useState('');
+
   const [open, setOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<{ x: number; y: number; size: number }>({ x: 0, y: 0, size: 0 })
-  const refWrapper = useRef<HTMLDivElement | null>(null);
+  const refWrapper = useRef<HTMLFormElement | null>(null);
 
   const calcPosition = useCallback(() => {
     if (!refWrapper.current) {
@@ -41,13 +42,25 @@ const SearchField = () => {
     };
   }, []);
 
+  const handleSearch = useCallback(async (event: SyntheticEvent) => {
+    event.preventDefault();
+    // setQuery()
+  }, []);
+
+  const handleChangeQuery = useCallback((event: SyntheticEvent) => {
+    setQuery((event.target as HTMLInputElement).value);
+  }, [setQuery]);
+
   return (
     <>
       <styled.Wrapper
         ref={refWrapper}
+        onSubmit={handleSearch}
       >
         <SearchIcon/>
         <styled.Input
+          value={query}
+          onChange={handleChangeQuery}
           placeholder="Найти мероприятие"
           onFocus={() => setOpen(true)}
           onClick={open ? undefined : () => setOpen(true)}
