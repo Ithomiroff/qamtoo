@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
+import { TextFieldVariant } from "@/kit/components/TextField/TextField";
 
-export const TextFieldWrapper = styled.div`
+export const TextFieldWrapper = styled.div<{ $variant: TextFieldVariant; $full: boolean }>`
   height: ${toRem(50)};
   min-width: ${toRem(300)};
   background-color: var(--background);
@@ -11,11 +12,27 @@ export const TextFieldWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: ${toRem(8)};
+  
+  ${({ $variant }) => $variant === 'outlined' && css`
+    border: ${toRem(1)} solid var(--additional-font)};
+  `} 
+  
+  ${({ $full }) => $full && css`
+    width: 100%;
+    min-width: unset;
+  `} 
 `;
 
 export const Prefix = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const TextPrefix = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: ${toRem(14)};
+  font-weight: 500;
 `;
 
 export const Input = styled.input`

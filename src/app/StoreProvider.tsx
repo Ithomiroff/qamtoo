@@ -15,7 +15,6 @@ export default function StoreProvider({ children, initialData }: PropsWithChildr
 
   if (!storeRef.current) {
     storeRef.current = makeStore();
-
     storeRef.current?.dispatch(eventsSlice.init(initialData.events));
     storeRef.current?.dispatch(commonSlice.init(initialData.device));
 

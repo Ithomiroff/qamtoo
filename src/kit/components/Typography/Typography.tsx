@@ -47,6 +47,7 @@ export const Subheader = styled.p`
   font-size: ${toRem(16)};
   line-height: ${toRem(22.4)};
   font-weight: 500;
+  margin: 0;
 `;
 
 export const Text = styled.span`
