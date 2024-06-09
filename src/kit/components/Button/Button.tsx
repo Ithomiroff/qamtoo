@@ -8,7 +8,7 @@ import { toRem } from "@/kit/utils/helpers";
 type Props = HTMLAttributes<HTMLButtonElement> & {
   icon?: string;
   sizePx?: string;
-  variant?: 'filled' | 'outlined' | 'disabled' | 'rounded';
+  variant?: 'filled' | 'outlined' | 'disabled' | 'rounded' | 'default';
 }
 
 type StyledButtonProps = {
@@ -58,6 +58,13 @@ export const StyledButton = styled.button<StyledButtonProps>`
   `}
   ${(props) => props.$icon && props.$variant !== 'rounded' && css`
     gap: ${toRem(8)};
+  `}
+  ${(props) => props.$icon && props.$variant !== 'rounded' && css`
+    gap: ${toRem(8)};
+  `}
+  ${(props) => props.$variant === 'default' && css`
+    box-shadow: none;
+    background: var(--background)!important;
   `}
 `;
 

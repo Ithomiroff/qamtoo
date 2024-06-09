@@ -3,7 +3,7 @@
 import { Page } from "@/kit/components/Page";
 import { Container } from "@/kit/components/Container";
 import * as style from './styled';
-import { FiltersCard } from "@/app/search/desktop/FiltersCard";
+import { FiltersCard } from "../../../home/components/FiltersCard";
 import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";
 import { EventCard } from "@/kit/components/EventCard";
 

@@ -10,7 +10,7 @@ import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";
 import { useAppSelector } from "@/store";
 import * as eventsSlice from "@/store/events/reducer";
 import { EventCard } from "@/kit/components/EventCard";
-import { FiltersCard } from "@/app/search/desktop/FiltersCard";
+import { FiltersCard } from "../../components/FiltersCard";
 
 
 const HomePage = () => {

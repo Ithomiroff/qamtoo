@@ -36,8 +36,11 @@ export const Wrapper = styled.section<{ $filtersActive: boolean }>`
       grid-template-columns: ${toRem(392)} 1fr;
       
       ${List} {
-          padding-left: ${toRem(48)};
-          grid-template-columns: repeat(2, 1fr);
+        padding-left: ${toRem(48)};
+        grid-template-columns: repeat(2, 1fr);
+        @media(max-width: 1100px) {
+          padding-left: ${toRem(24)};
+        }
       }
   `}
 `;

@@ -1,1 +1,0 @@
-export { FiltersCard } from './FiltersCard';

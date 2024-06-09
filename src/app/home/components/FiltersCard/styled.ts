@@ -9,7 +9,7 @@ export const Card = styled.article`
   padding: ${toRem(16)};
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   position: sticky;
   top: ${toRem(16)};
 `;

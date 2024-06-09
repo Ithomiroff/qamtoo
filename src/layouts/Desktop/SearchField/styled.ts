@@ -65,4 +65,5 @@ export const DropdownWrapper = styled.div<{ $x: number; $y: number;}>`
   top: ${({ $y }) => $y}px;
   left: ${({ $x }) => $x}px;
   padding: ${toRem(10)} 0 0 0;
+  z-index: 20;
 `;

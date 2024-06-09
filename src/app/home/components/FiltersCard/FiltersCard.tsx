@@ -1,10 +1,8 @@
 import * as style from './styled';
 import { Typography } from "@/kit/components/Typography";
-import { useEffect, useRef } from "react";
-import { getCategories, getTags } from "@/api/static/api";
+import { useRef } from "react";
 import { TextField } from "@/kit/components/TextField";
 import { Label } from "@/kit/components/Label";
-import { DoubleFields, Tags } from "./styled";
 import { Tag } from "@/kit/components/Tag";
 import CalendarIcon from "@/assets/icons/calendar.svg";
 import { Button } from "@/kit/components/Button";
@@ -12,11 +10,6 @@ import { Button } from "@/kit/components/Button";
 const FiltersCard = () => {
 
   const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    getCategories();
-    getTags();
-  }, []);
 
   return (
     <style.Wrapper ref={ref}>
@@ -55,6 +48,7 @@ const FiltersCard = () => {
             <Tag>на этой неделе</Tag>
             <Tag
               variant="outlined"
+              size="large"
               prefix={<CalendarIcon/>}
             >
               выбрать дату или период</Tag>

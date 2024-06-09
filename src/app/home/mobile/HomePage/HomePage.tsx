@@ -11,14 +11,26 @@ import { EventCard } from "@/kit/components/EventCard";
 import { EmptyResultText } from "@/app/home/styled";
 import { Typography } from "@/kit/components/Typography";
 import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";
+import { MobileModal } from "@/kit/components/MobileModal";
+import { FiltersCardMobile } from "@/app/home/components/FiltersCard";
+import { useAppDispatch, useAppSelector } from "@/store";
+import * as eventsSlice from "@/store/events/reducer";
 
 const HomePage = () => {
+
+  const dispatch = useAppDispatch();
 
   const {
     eventsList,
     ButtonsLayout,
   } = useSearchFilter();
 
+
+  const filtersActive = useAppSelector(eventsSlice.extendedFilterActiveSelector);
+
+  const toggleFilters = () => {
+    dispatch(eventsSlice.toggleExtendedFilters());
+  };
   return (
     <Container>
       <style.Filters>
@@ -29,7 +41,10 @@ const HomePage = () => {
           prefixIcon={<SearchIcon/>}
           placeholder="Найти мероприятие"
         />
-        <Button variant="rounded">
+        <Button
+          variant="rounded"
+          onClick={toggleFilters}
+        >
           <FiltersIcon/>
         </Button>
       </style.SearchField>
@@ -46,6 +61,16 @@ const HomePage = () => {
         <EmptyResultText>
           <Typography variant="3">Ничего не найдено</Typography>
         </EmptyResultText>
+      )}
+
+      {filtersActive && (
+        <MobileModal
+          title="Фильтр"
+          closeType="close"
+          onClose={toggleFilters}
+        >
+          <FiltersCardMobile/>
+        </MobileModal>
       )}
     </Container>
   )
