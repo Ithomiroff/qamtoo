@@ -1,0 +1,1 @@
+export { SearchPage as DesktopSearchPage } from './SearchPage';

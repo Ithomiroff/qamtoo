@@ -10,7 +10,6 @@ import { SearchField } from "@/layouts/Desktop/SearchField";
 import { CitySelection } from "@/layouts/Desktop/CitySelection";
 import { ActionsToolbar } from "@/layouts/Desktop/ActionsToolbar/ActionsToolbar";
 import { useAppDispatch } from "@/store";
-import { useCallback } from "react";
 import * as eventsSlice from '@/store/events';
 
 

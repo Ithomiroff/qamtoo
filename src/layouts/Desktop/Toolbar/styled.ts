@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
 
 export const Header = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 10;
   height: ${toRem(94)};
   background: var(--dark-gradient);
   display: flex;

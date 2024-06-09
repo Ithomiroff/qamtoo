@@ -69,6 +69,7 @@ export const fetchFilteredEvents = createAsyncThunk<EventDto[]>(
 
 export const eventsListSelector = (state: RootState) => state.events.events;
 export const queryFilterSelector = (state: RootState) => state.events.query;
+export const extendedFilterActiveSelector = (state: RootState) => state.events.extendedFiltersActive;
 export const filterByKeySelector = (key: string) => (state: RootState) => state.events.additionalFilters[key];
 
 export const {
@@ -76,5 +77,6 @@ export const {
   changeFilter,
   changeQuery,
   toggleExtendedFilters,
+  toggleFilterPanel,
 } = eventsSlice.actions;
 export default eventsSlice.reducer;

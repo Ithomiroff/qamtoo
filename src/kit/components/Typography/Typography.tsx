@@ -26,18 +26,21 @@ export const H3 = styled.h3`
   font-size: ${toRem(24)};
   line-height: ${toRem(33.6)};
   font-weight: 500;
+  margin: 0;
 `;
 
 export const H4 = styled.h4`
   font-size: ${toRem(20)};
   line-height: ${toRem(25.6)};
   font-weight: 500;
+  margin: 0;
 `;
 
 export const H5 = styled.h5`
   font-size: ${toRem(18)};
   line-height: ${toRem(23.4)};
   font-weight: 500;
+  margin: 0;
 `;
 
 export const Subheader = styled.p`

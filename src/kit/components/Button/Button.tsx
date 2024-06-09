@@ -84,6 +84,7 @@ const Button = (props: Props) => {
 
     return (
       <StyledButton
+        {...rest}
         $variant={variant}
         $icon={true}
       >
