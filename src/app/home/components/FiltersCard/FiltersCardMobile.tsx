@@ -1,5 +1,4 @@
 import * as style from './styled';
-import { useRef } from "react";
 import { TextField } from "@/kit/components/TextField";
 import { Label } from "@/kit/components/Label";
 import { Tag } from "@/kit/components/Tag";
@@ -7,10 +6,9 @@ import CalendarIcon from "@/assets/icons/calendar.svg";
 
 const FiltersCardMobile = () => {
 
-  const ref = useRef<HTMLDivElement | null>(null);
 
   return (
-    <style.Wrapper ref={ref}>
+    <style.Wrapper>
       <Label text="Стоимость">
         <style.DoubleFields>
           <TextField

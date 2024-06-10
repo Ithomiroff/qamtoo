@@ -3,7 +3,6 @@
 import { Page } from "@/kit/components/Page";
 import { Container } from "@/kit/components/Container";
 import * as style from './styled';
-import { EventsList } from "@/app/home/desktop/EventsList";
 import { Typography } from "@/kit/components/Typography";
 import { EmptyResultText } from "@/app/home/styled";
 import { useSearchFilter } from "@/app/home/hooks/useSearchFilter";

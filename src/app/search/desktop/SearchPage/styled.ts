@@ -8,10 +8,10 @@ export const Results = styled.ul`
   grid-gap: ${toRem(24)};
 `;
 
-export const Wrapper = styled.div<{ filterActive: boolean }>`
+export const Wrapper = styled.div<{ $filterActive: boolean }>`
   padding-top: ${toRem(32)};
   
-  ${({ filterActive }) => filterActive && css`
+  ${({ $filterActive }) => $filterActive && css`
     display: grid;
     grid-template-columns: ${toRem(392)} 1fr;
     

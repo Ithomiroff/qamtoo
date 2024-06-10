@@ -17,7 +17,7 @@ const SearchPage = () => {
     <Container>
       <Page
         title="Результаты поиска в Нижнем Новгороде">
-        <style.Wrapper>
+        <style.Wrapper $filterActive={false}>
           <FiltersCard/>
 
           <style.Results>

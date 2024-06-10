@@ -1,4 +1,3 @@
-import { SearchPage } from "@/app/search/desktop/SearchPage";
 import dynamic from "next/dynamic";
 import { useDevice } from "@/hooks/useDevice";
 

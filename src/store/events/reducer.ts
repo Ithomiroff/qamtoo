@@ -77,6 +77,5 @@ export const {
   changeFilter,
   changeQuery,
   toggleExtendedFilters,
-  toggleFilterPanel,
 } = eventsSlice.actions;
 export default eventsSlice.reducer;
