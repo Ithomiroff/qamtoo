@@ -3,8 +3,8 @@
 import { PropsWithChildren } from "react";
 import { LayoutProps } from "@/layouts/meta/types";
 import * as style from './styled';
-import { MobileHeader } from "@/layouts/Mobile/Header";
-import { MobileFooter } from "@/layouts/Mobile/Footer";
+import { MobileHeader } from "@/layouts/mobile/Header";
+import { MobileFooter } from "@/layouts/mobile/Footer";
 
 const MobileLayout = (props: PropsWithChildren<LayoutProps>) => {
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
-import { DESKTOP_FOOTER_HEIGHT_PX, DESKTOP_HEADER_HEIGHT_PX } from "@/layouts/Desktop/meta/consts";
+import { DESKTOP_FOOTER_HEIGHT_PX, DESKTOP_HEADER_HEIGHT_PX } from "@/layouts/desktop/meta/consts";
 
 export const Body = styled.body`
   min-width: ${toRem(1060)};

@@ -6,6 +6,7 @@ const SIZES: Record<IconSize, number> = {
   'lg': 28,
   'md': 24,
   'sm': 20,
+  'xs': 18,
 };
 
 export const Wrapper = styled.div<{ $size: IconSize }>`

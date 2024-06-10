@@ -9,6 +9,7 @@ export const Wrapper = styled.form`
   align-items: center;
   gap: ${toRem(8)};
   padding: 0 ${toRem(8)};
+  color: var(--dark-gray-blue);
 `;
 
 export const Input = styled.input`
@@ -17,7 +18,6 @@ export const Input = styled.input`
   font-size: ${toRem(16)};
   height: ${toRem(46)};
   width: ${toRem(389)};
-  color: var(--black);
   font-weight: 400;
   
   @media(max-width: 1240px) {

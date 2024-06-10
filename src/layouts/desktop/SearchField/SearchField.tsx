@@ -5,6 +5,7 @@ import { SyntheticEvent, useCallback, useEffect, useLayoutEffect, useRef, useSta
 import { Portal } from "@/kit/components/Portal";
 import SearchIcon from "@/assets/icons/search.svg";
 import { useAppDispatch, useAppSelector } from "@/store";
+import { Icon } from "@/kit/components/Icon";
 
 const SearchField = () => {
 
@@ -62,7 +63,9 @@ const SearchField = () => {
         ref={refWrapper}
         onSubmit={handleSearch}
       >
-        <SearchIcon/>
+        <Icon size="xs">
+          <SearchIcon/>
+        </Icon>
         <styled.Input
           value={query}
           onChange={handleChangeQuery}

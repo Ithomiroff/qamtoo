@@ -1,11 +1,11 @@
-import { MobileMenuItem } from "@/layouts/Mobile/Footer/meta/types";
+import { MobileMenuItem } from "@/layouts/mobile/Footer/meta/types";
 import CalendarIcon from "@/assets/icons/calendar.svg";
 import SearchIcon from "@/assets/icons/search.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
 import UserIcon from "@/assets/icons/user.svg";
 import EventMenu from "@/assets/icons/event-menu.svg";
 import { Icon } from "@/kit/components/Icon";
-import { CreateButton } from "@/layouts/Mobile/CreateButton";
+import { CreateButton } from "@/layouts/mobile/CreateButton";
 
 export const MOBILE_MENU: MobileMenuItem[] = [
   {

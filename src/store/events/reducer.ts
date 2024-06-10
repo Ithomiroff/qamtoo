@@ -2,12 +2,15 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { EventDto, SearchFilterDto } from "@/api/search";
 import { RootState } from "@/store";
 import { getFilteredEvents } from "@/api/search/api";
+import { CategoryDto, getCategories } from "@/api/static";
 
 export type EventsState = {
   events: EventDto[];
   query: string;
   additionalFilters: Record<string, string | boolean>;
   extendedFiltersActive: boolean;
+  categories: CategoryDto[];
+  selectedCategoriesIds: string[];
 };
 
 const initialState: EventsState = {
@@ -15,6 +18,8 @@ const initialState: EventsState = {
   query: '',
   additionalFilters: { isPublish: true },
   extendedFiltersActive: false,
+  categories: [],
+  selectedCategoriesIds: [],
 };
 
 const eventsSlice = createSlice({
@@ -36,17 +41,30 @@ const eventsSlice = createSlice({
     toggleExtendedFilters: (state: EventsState) => {
       state.extendedFiltersActive = !state.extendedFiltersActive;
     },
+    toggleSelectCategory: (state: EventsState, action: PayloadAction<string>) => {
+      const selected = new Set(state.selectedCategoriesIds);
+
+      if (selected.has(action.payload)) {
+        selected.delete(action.payload);
+      } else {
+        selected.add(action.payload);
+      }
+      state.selectedCategoriesIds = [...selected];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchFilteredEvents.fulfilled, (state: EventsState, action) => {
       state.events = action.payload;
+    });
+    builder.addCase(fetchCategoriesEvents.fulfilled, (state: EventsState, action) => {
+      state.categories = action.payload;
     });
   },
 });
 
 
 export const fetchFilteredEvents = createAsyncThunk<EventDto[]>(
-  'users/fetchFilteredEvents',
+  'events/fetchFilteredEvents',
   async (_, thunkAPI) => {
 
     const {
@@ -67,9 +85,17 @@ export const fetchFilteredEvents = createAsyncThunk<EventDto[]>(
 )
 
 
+export const fetchCategoriesEvents = createAsyncThunk<CategoryDto[]>(
+  'events/fetchCategoriesEvents',
+  () => getCategories()
+);
+
+
 export const eventsListSelector = (state: RootState) => state.events.events;
 export const queryFilterSelector = (state: RootState) => state.events.query;
 export const extendedFilterActiveSelector = (state: RootState) => state.events.extendedFiltersActive;
+export const eventsCategories = (state: RootState) => state.events.categories;
+export const selectedFilterCategoriesIds = (state: RootState) => state.events.selectedCategoriesIds;
 export const filterByKeySelector = (key: string) => (state: RootState) => state.events.additionalFilters[key];
 
 export const {
@@ -77,5 +103,6 @@ export const {
   changeFilter,
   changeQuery,
   toggleExtendedFilters,
+  toggleSelectCategory,
 } = eventsSlice.actions;
 export default eventsSlice.reducer;

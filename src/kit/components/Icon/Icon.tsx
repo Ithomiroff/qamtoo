@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import * as style from './styled';
 
-export type IconSize = 'md' | 'lg' | 'sm';
+export type IconSize = 'md' | 'lg' | 'sm' | 'xs';
 
 type Props = {
   size?: IconSize;

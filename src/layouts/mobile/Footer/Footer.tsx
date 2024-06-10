@@ -1,5 +1,5 @@
 import * as style from './styled';
-import { MOBILE_MENU } from "@/layouts/Mobile/Footer/meta/consts";
+import { MOBILE_MENU } from "@/layouts/mobile/Footer/meta/consts";
 import Link from "next/link";
 
 const Footer = () => {

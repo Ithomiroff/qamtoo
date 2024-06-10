@@ -48,3 +48,21 @@ export const Footer = styled.div`
     width: 100%;
   }
 `;
+
+export const VariantsType = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: ${toRem(12)};
+  margin: 0;
+  padding: 0;
+`;
+
+export const Variant = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding-left: ${toRem(16)};
+  padding-right: ${toRem(4)};
+  cursor: pointer;
+`;

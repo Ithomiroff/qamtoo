@@ -6,11 +6,13 @@ import Link from 'next/link'
 import * as styled from './styled';
 import { Button } from "@/kit/components/Button";
 import { Container } from "@/kit/components/Container";
-import { SearchField } from "@/layouts/Desktop/SearchField";
-import { CitySelection } from "@/layouts/Desktop/CitySelection";
-import { ActionsToolbar } from "@/layouts/Desktop/ActionsToolbar/ActionsToolbar";
+import { SearchField } from "@/layouts/desktop/SearchField";
+import { CitySelection } from "@/layouts/desktop/CitySelection";
+import { ActionsToolbar } from "@/layouts/desktop/ActionsToolbar/ActionsToolbar";
 import { useAppDispatch } from "@/store";
 import * as eventsSlice from '@/store/events';
+import { Icon } from "@/kit/components/Icon";
+import FiltersIcon from "@/assets/icons/filters.svg";
 
 
 const Toolbar = () => {
@@ -37,9 +39,12 @@ const Toolbar = () => {
           <styled.InputWrapper>
             <Button
               variant="rounded"
-              icon="filters"
               onClick={toggleFilters}
-            />
+            >
+              <Icon size="lg">
+                <FiltersIcon/>
+              </Icon>
+            </Button>
 
             <SearchField/>
           </styled.InputWrapper>
