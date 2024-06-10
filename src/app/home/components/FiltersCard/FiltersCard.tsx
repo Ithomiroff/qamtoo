@@ -45,6 +45,7 @@ const FiltersCard = () => {
                 <span>{item.label}</span>
                 <Checkbox
                   checked={selectedCategoriesIds.includes(item.id)}
+                  onChangeCheckbox={handleToggleCategory(item.id)}
                 />
               </style.Variant>
             ))}

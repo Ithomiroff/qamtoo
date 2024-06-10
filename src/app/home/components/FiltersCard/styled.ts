@@ -18,6 +18,7 @@ export const Tags = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   gap: ${toRem(5)};
+  padding-top: ${toRem(8)};
 `;
 
 export const Divider = styled.div<{$spaceOnly?: boolean}>`
@@ -65,4 +66,17 @@ export const Variant = styled.li`
   padding-left: ${toRem(16)};
   padding-right: ${toRem(4)};
   cursor: pointer;
+`;
+
+export const TypeSelect = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Selector = styled.div`
+  color: var(--light-blue);
+  span {
+    font-weight: 500;
+  }
 `;

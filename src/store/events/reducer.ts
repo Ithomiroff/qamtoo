@@ -49,7 +49,10 @@ const eventsSlice = createSlice({
       } else {
         selected.add(action.payload);
       }
-      state.selectedCategoriesIds = [...selected];
+      state.selectedCategoriesIds = Array.from(selected);
+    },
+    forceSelectCategories: (state: EventsState, action: PayloadAction<string[]>) => {
+      state.selectedCategoriesIds = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -57,7 +60,7 @@ const eventsSlice = createSlice({
       state.events = action.payload;
     });
     builder.addCase(fetchCategoriesEvents.fulfilled, (state: EventsState, action) => {
-      state.categories = action.payload;
+      state.categories = action.payload.sort((a, b) => a.label > b.label ? 1 : -1);
     });
   },
 });
@@ -96,6 +99,8 @@ export const queryFilterSelector = (state: RootState) => state.events.query;
 export const extendedFilterActiveSelector = (state: RootState) => state.events.extendedFiltersActive;
 export const eventsCategories = (state: RootState) => state.events.categories;
 export const selectedFilterCategoriesIds = (state: RootState) => state.events.selectedCategoriesIds;
+export const selectedFilterCategoriesFull = (state: RootState) => state.events.categories
+  .filter((item) => state.events.selectedCategoriesIds.includes(item.id));
 export const filterByKeySelector = (key: string) => (state: RootState) => state.events.additionalFilters[key];
 
 export const {
@@ -104,5 +109,6 @@ export const {
   changeQuery,
   toggleExtendedFilters,
   toggleSelectCategory,
+  forceSelectCategories,
 } = eventsSlice.actions;
 export default eventsSlice.reducer;

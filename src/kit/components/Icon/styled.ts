@@ -12,6 +12,9 @@ const SIZES: Record<IconSize, number> = {
 export const Wrapper = styled.div<{ $size: IconSize }>`
   width: ${({ $size }) => toRem(SIZES[$size])};
   height: ${({ $size }) => toRem(SIZES[$size])};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   svg {
     width: 100%;

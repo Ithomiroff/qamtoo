@@ -15,6 +15,7 @@ import { MobileModal } from "@/kit/components/MobileModal";
 import { FiltersCardMobile } from "@/app/home/components/FiltersCard";
 import { useAppDispatch, useAppSelector } from "@/store";
 import * as eventsSlice from "@/store/events/reducer";
+import { Icon } from "@/kit/components/Icon";
 
 const HomePage = () => {
 
@@ -45,7 +46,9 @@ const HomePage = () => {
           variant="rounded"
           onClick={toggleFilters}
         >
-          <FiltersIcon/>
+          <Icon>
+            <FiltersIcon/>
+          </Icon>
         </Button>
       </style.SearchField>
       {eventsList.length > 0 ? (
