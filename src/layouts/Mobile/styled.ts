@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export const Header = styled.header`
   position: sticky;
@@ -19,11 +15,11 @@ export const Footer = styled.footer`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: ${toRem(50)};
+  height: ${toRem(60)};
   background: var(--background);
   border-top: ${toRem(1)} solid var(--lines);
 `;
 
 export const Main = styled.main`
-  padding: ${toRem(24)} 0 ${toRem(24 + 50)} 0;
+  padding: ${toRem(24)} 0 ${toRem(24 + 60)} 0;
 `;
