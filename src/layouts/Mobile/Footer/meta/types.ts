@@ -1,5 +1,8 @@
+import { ReactNode } from "react";
+
 export type MobileMenuItem = {
   name: string;
-  icon: string;
+  icon?: ReactNode;
   key: string;
+  custom?: boolean;
 };

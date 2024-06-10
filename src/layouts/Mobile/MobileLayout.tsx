@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import { LayoutProps } from "@/layouts/meta/types";
 import * as style from './styled';
 import { MobileHeader } from "@/layouts/Mobile/Header";
+import { MobileFooter } from "@/layouts/Mobile/Footer";
 
 const MobileLayout = (props: PropsWithChildren<LayoutProps>) => {
 
@@ -14,7 +15,7 @@ const MobileLayout = (props: PropsWithChildren<LayoutProps>) => {
       </style.Header>
       <style.Main>{props.children}</style.Main>
       <style.Footer>
-        {/*<MobileFooter/>*/}
+        <MobileFooter />
       </style.Footer>
     </body>
   )

@@ -19,8 +19,11 @@ export const Footer = styled.footer`
   bottom: 0;
   left: 0;
   width: 100%;
+  height: ${toRem(50)};
+  background: var(--background);
+  border-top: ${toRem(1)} solid var(--lines);
 `;
 
 export const Main = styled.main`
-  padding: ${toRem(24)} 0;
+  padding: ${toRem(24)} 0 ${toRem(24 + 50)} 0;
 `;
