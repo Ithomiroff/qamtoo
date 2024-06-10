@@ -1,3 +1,3 @@
-export { getMyEvents, getEvents } from './api';
+export { getTags, getCategories } from './api';
 
 export * from './dto';

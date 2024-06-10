@@ -1,6 +1,5 @@
 import * as style from './styled';
 import { Typography } from "@/kit/components/Typography";
-import { useRef } from "react";
 import { TextField } from "@/kit/components/TextField";
 import { Label } from "@/kit/components/Label";
 import { Tag } from "@/kit/components/Tag";
@@ -9,10 +8,8 @@ import { Button } from "@/kit/components/Button";
 
 const FiltersCard = () => {
 
-  const ref = useRef<HTMLDivElement | null>(null);
-
   return (
-    <style.Wrapper ref={ref}>
+    <style.Wrapper>
       <style.Card>
         <Typography variant="3">Фильтры</Typography>
         
