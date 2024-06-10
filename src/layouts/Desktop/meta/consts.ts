@@ -1,0 +1,2 @@
+export const DESKTOP_HEADER_HEIGHT_PX = 94;
+export const DESKTOP_FOOTER_HEIGHT_PX = 316;

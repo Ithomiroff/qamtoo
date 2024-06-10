@@ -8,7 +8,6 @@ export const Filters = styled.div`
   display: flex;
   align-items: center;
   gap: ${toRem(16)};
-  padding-top: ${toRem(24)};
   button {
     width: 50%;
   }

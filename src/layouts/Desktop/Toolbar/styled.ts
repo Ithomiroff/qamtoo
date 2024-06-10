@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
+import { DESKTOP_HEADER_HEIGHT_PX } from "@/layouts/Desktop/meta/consts";
 
 export const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
-  height: ${toRem(94)};
+  height: ${toRem(DESKTOP_HEADER_HEIGHT_PX)};
   background: var(--dark-gradient);
   display: flex;
   align-items: center;

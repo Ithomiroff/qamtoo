@@ -21,5 +21,6 @@ export const Footer = styled.footer`
   width: 100%;
 `;
 
-export const Body = styled.body`
+export const Main = styled.main`
+  padding: ${toRem(24)} 0;
 `;
