@@ -103,4 +103,8 @@ export const Detail = styled.div<{ $first?: boolean }>`
   span {
     color: var(--basic-font);
   }
+  
+  svg {
+    color: var(--light-blue);
+  }
 `;

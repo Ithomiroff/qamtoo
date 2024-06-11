@@ -32,6 +32,7 @@ export const Overlay = styled.div`
   height: 100%;
   background-color: var(--black);
   opacity: 20%;
+  z-index: 2;
 `;
 
 export const Dropdown = styled.div<{$width: number }>`

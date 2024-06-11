@@ -1,8 +1,7 @@
 'use client'
 
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import Leaflet from 'leaflet';
-import MarkerSvg from '@/assets/icons/circle-marker.svg';
 
 import 'leaflet/dist/leaflet.css';
 

@@ -22,8 +22,6 @@ export default async function RootLayout({
 
   const device = useDevice();
 
-  const Layout = device === 'desktop' ? DesktopLayout : MobileLayout;
-
   const initialData: InitialStoreData = {
     events,
     device,
@@ -33,9 +31,9 @@ export default async function RootLayout({
     <html lang="en">
       <StyledComponentsRegistry>
         <StoreProvider initialData={initialData}>
-          <Layout classNameFont={ROBOTO_APP_FONT.className}>
+          <body className={ROBOTO_APP_FONT.className}>
             {children}
-          </Layout>
+          </body>
         </StoreProvider>
       </StyledComponentsRegistry>
     </html>

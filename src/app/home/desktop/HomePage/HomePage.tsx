@@ -10,11 +10,9 @@ import { useAppSelector } from "@/store";
 import * as eventsSlice from "@/store/events/reducer";
 import { EventCard } from "@/kit/components/EventCard";
 import { FiltersCard } from "../../components/FiltersCard";
-import { MapEvents } from "../../../shared/MapEvents";
 import dynamic from "next/dynamic";
 import { Button } from "@/kit/components/Button";
 import Link from "next/link";
-import { eventsMarkers } from "@/store/events/reducer";
 
 
 const DynamicMap = dynamic(() => import("../../../shared/MapEvents")

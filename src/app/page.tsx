@@ -1,5 +1,7 @@
 import { useDevice } from "@/hooks/useDevice";
 import dynamic from "next/dynamic";
+import { DesktopLayout } from "@/layouts/desktop";
+import { MobileLayout } from "@/layouts/mobile";
 
 const LazyDesktopPage = dynamic(() => {
   return import('./home/desktop/HomePage').then(com => com.HomePage);
@@ -11,14 +13,18 @@ const LazyMobilePage = dynamic(() => {
 async function Home() {
   const device = useDevice();
 
-  return (
-    <>
-      {device === 'desktop' ? (
+  if (device === 'desktop') {
+    return (
+      <DesktopLayout>
         <LazyDesktopPage />
-      ) : (
-        <LazyMobilePage />
-      )}
-    </>
+      </DesktopLayout>
+    );
+  }
+
+  return (
+    <MobileLayout>
+      <LazyMobilePage/>
+    </MobileLayout>
   )
 }
 
