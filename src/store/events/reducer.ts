@@ -4,6 +4,7 @@ import { RootState } from "@/store";
 import { getFilteredEvents } from "@/api/search/api";
 import { CategoryDto, getCategories } from "@/api/static";
 import { LonLat } from "@/common/types";
+import { LatLngTuple } from "leaflet";
 
 export type EventsState = {
   events: EventDto[];
@@ -99,7 +100,8 @@ export const eventsListSelector = (state: RootState) => state.events.events;
 export const queryFilterSelector = (state: RootState) => state.events.query;
 export const extendedFilterActiveSelector = (state: RootState) => state.events.extendedFiltersActive;
 export const eventsCategories = (state: RootState) => state.events.categories;
-export const eventsMarkers = createSelector(getState, ({ events }) => events.map((item) => [item.detail.lon, item.detail.lat] as LonLat));
+export const eventsMarkers = createSelector(getState, ({ events }) =>
+  events.map((item) => [item.detail.lon, item.detail.lat] as unknown as LatLngTuple));
 export const selectedFilterCategoriesIds = (state: RootState) => state.events.selectedCategoriesIds;
 export const selectedFilterCategoriesFull = (state: RootState) => state.events.categories
   .filter((item) => state.events.selectedCategoriesIds.includes(item.id));

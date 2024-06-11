@@ -15,7 +15,7 @@ import { Button } from "@/kit/components/Button";
 import Link from "next/link";
 
 
-const DynamicMap = dynamic(() => import("../../../shared/MapEvents")
+const DynamicMap = dynamic(() => import("../../../../kit/components/MapEvents")
   .then((c) => c.MapEvents), { ssr:false })
 
 

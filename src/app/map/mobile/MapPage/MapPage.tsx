@@ -2,16 +2,12 @@
 
 import dynamic from "next/dynamic";
 import * as style from './styled';
-import { toRem } from "@/kit/utils/helpers";
-import { DESKTOP_HEADER_HEIGHT_PX } from "@/layouts/desktop/meta/consts";
 import Link from "next/link";
 import { Button } from "@/kit/components/Button";
 
 
-const DynamicMap = dynamic(() => import("../../../shared/MapEvents")
-  .then((c) => c.MapEvents), { ssr:false })
-
-const MAP_HEIGHT = `calc(100vh - ${toRem(DESKTOP_HEADER_HEIGHT_PX)})`;
+const DynamicMap = dynamic(() => import("../../../../kit/components/MapEvents")
+  .then((c) => c.MapEvents), { ssr:false });
 
 const MapPage = () => (
   <style.Wrapper>

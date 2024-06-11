@@ -1,19 +1,19 @@
 'use client'
 
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
-import Leaflet from 'leaflet';
+import Leaflet, { LatLngTuple } from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
 import { CSSProperties } from "react";
-import { LonLat } from "@/common/types";
 
 type Props = {
   style?: CSSProperties;
-  markers?: LonLat[]
+  markers?: LatLngTuple[]
 }
-const center = [55.426827, 41.529426]
+const center = [55.426827, 41.529426] as LatLngTuple;
 
+// @ts-ignore
 const Icon = new Leaflet.divIcon({
   html: (
     `<div class="custom-marker"/>`
