@@ -25,7 +25,7 @@ async function Home() {
     <MobileLayout>
       <LazyMobilePage/>
     </MobileLayout>
-  )
+  );
 }
 
 export default Home;

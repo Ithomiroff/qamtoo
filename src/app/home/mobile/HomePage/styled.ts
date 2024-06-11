@@ -3,6 +3,7 @@ import { toRem } from "@/kit/utils/helpers";
 import { TextFieldWrapper } from "@/kit/components/TextField/styled";
 import { StyledButton } from "@/kit/components/Button/Button";
 import { EventCardStyled } from "@/kit/components/EventCard/styled";
+import { MOBILE_FOOTER_HEIGHT_PX } from "@/layouts/mobile/meta/consts";
 
 export const Filters = styled.div`
   display: flex;
@@ -10,6 +11,18 @@ export const Filters = styled.div`
   gap: ${toRem(16)};
   button {
     width: 50%;
+  }
+`;
+
+export const MapLink = styled.div`
+  position: fixed;
+  left: ${toRem(16)};
+  bottom: ${toRem(MOBILE_FOOTER_HEIGHT_PX + 16)};
+  z-index: 10;
+
+  a {
+    text-decoration: none;
+    color: var(--background);
   }
 `;
 

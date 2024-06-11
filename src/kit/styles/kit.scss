@@ -57,6 +57,11 @@ body {
     border: none!important;
 }
 
+.leaflet-control-container {
+    display: none;
+}
+
+
 
 @keyframes appearY {
     from {

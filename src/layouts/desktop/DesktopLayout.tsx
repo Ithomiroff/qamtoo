@@ -6,7 +6,7 @@ import * as style from "./styled";
 import { DesktopFooter } from "@/layouts/desktop/Footer";
 
 type Props = {
-  noFooter: boolean;
+  noFooter?: boolean;
 };
 
 const DesktopLayout = ({ noFooter, children }: PropsWithChildren<Props>) => (

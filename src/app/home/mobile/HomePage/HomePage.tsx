@@ -16,6 +16,7 @@ import { FiltersCardMobile } from "@/app/home/components/FiltersCard";
 import { useAppDispatch, useAppSelector } from "@/store";
 import * as eventsSlice from "@/store/events/reducer";
 import { Icon } from "@/kit/components/Icon";
+import Link from "next/link";
 
 const HomePage = () => {
 
@@ -37,6 +38,7 @@ const HomePage = () => {
       <style.Filters>
         <ButtonsLayout/>
       </style.Filters>
+
       <style.SearchField>
         <TextField
           prefixIcon={<SearchIcon/>}
@@ -51,6 +53,18 @@ const HomePage = () => {
           </Icon>
         </Button>
       </style.SearchField>
+
+      <style.MapLink>
+        <Link href="/map">
+          <Button
+            variant="filled"
+            icon="map"
+          >
+            карта
+          </Button>
+        </Link>
+      </style.MapLink>
+
       {eventsList.length > 0 ? (
         <style.EventsList>
           {eventsList.map((item) => (

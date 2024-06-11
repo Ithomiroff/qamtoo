@@ -1,0 +1,2 @@
+
+export const MOBILE_FOOTER_HEIGHT_PX = 60;
