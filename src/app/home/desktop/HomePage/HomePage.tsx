@@ -10,6 +10,15 @@ import { useAppSelector } from "@/store";
 import * as eventsSlice from "@/store/events/reducer";
 import { EventCard } from "@/kit/components/EventCard";
 import { FiltersCard } from "../../components/FiltersCard";
+import { MapEvents } from "../../../shared/MapEvents";
+import dynamic from "next/dynamic";
+import { Button } from "@/kit/components/Button";
+import Link from "next/link";
+import { eventsMarkers } from "@/store/events/reducer";
+
+
+const DynamicMap = dynamic(() => import("../../../shared/MapEvents")
+  .then((c) => c.MapEvents), { ssr:false })
 
 
 const HomePage = () => {
@@ -20,6 +29,7 @@ const HomePage = () => {
   } = useSearchFilter();
 
   const filtersActive = useAppSelector(eventsSlice.extendedFilterActiveSelector);
+  const eventsMarkers = useAppSelector(eventsSlice.eventsMarkers);
 
   return (
     <Container>
@@ -29,21 +39,40 @@ const HomePage = () => {
         </style.Filters>
 
         {eventsList.length > 0 ? (
-          <style.Wrapper $filtersActive={filtersActive}>
+          <>
+            <style.MapWrapper>
+              <DynamicMap
+                style={{ height: '300px', overflow: 'hidden' }}
+                markers={eventsMarkers}
+              />
+              <style.MapWrapperExpand>
+                <Link href="/map">
+                  <Button
+                    variant="filled"
+                    icon="map"
+                  >
+                    смотреть мероприятия на карте
+                  </Button>
+                </Link>
+              </style.MapWrapperExpand>
+            </style.MapWrapper>
 
-            {filtersActive && (
-              <FiltersCard />
-            )}
+            <style.Wrapper $filtersActive={filtersActive}>
 
-            <style.List>
-              {eventsList.map((item) => (
-                <EventCard
-                  key={item._id}
-                  value={item}
-                />
-              ))}
-            </style.List>
-          </style.Wrapper>
+              {filtersActive && (
+                <FiltersCard />
+              )}
+
+              <style.List>
+                {eventsList.map((item) => (
+                  <EventCard
+                    key={item._id}
+                    value={item}
+                  />
+                ))}
+              </style.List>
+            </style.Wrapper>
+          </>
           ) : (
           <EmptyResultText>
             <Typography variant="3">Ничего не найдено</Typography>

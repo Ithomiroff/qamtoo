@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
 
 
-export const Header = styled.header`
+export const MobileHeaderStyled = styled.header`
   position: sticky;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@ export const Header = styled.header`
   z-index: 1000;
 `;
 
-export const Footer = styled.footer`
+export const MobileFooterStyled = styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -20,6 +20,6 @@ export const Footer = styled.footer`
   border-top: ${toRem(1)} solid var(--lines);
 `;
 
-export const Main = styled.main`
+export const MobileMainStyled = styled.main`
   padding: ${toRem(24)} 0 ${toRem(24 + 60)} 0;
 `;

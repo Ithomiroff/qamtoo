@@ -6,3 +6,5 @@ export type InitialStoreData = {
   events: EventDto[];
   device: Device;
 };
+
+export type LonLat = [number, number];

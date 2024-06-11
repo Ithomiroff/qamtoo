@@ -7,8 +7,28 @@ export const Filters = styled.div`
   align-items: center;
   gap: ${toRem(16)};
   padding-top: ${toRem(24)};
+  padding-bottom: ${toRem(20)};
   button {
     width: ${toRem(170)};
+  }
+`;
+
+export const MapWrapper = styled.div`
+  border-radius: ${toRem(30)};
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+`;
+
+export const MapWrapperExpand = styled.div`
+  position: absolute;
+  bottom: ${toRem(16)};
+  left: ${toRem(16)};
+  z-index: 2;
+  
+  a {
+    text-decoration: none;
+    color: var(--background);
   }
 `;
 

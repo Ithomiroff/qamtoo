@@ -10,13 +10,13 @@ const MobileLayout = (props: PropsWithChildren<LayoutProps>) => {
 
   return (
     <body className={props.classNameFont}>
-      <style.Header>
+      <style.MobileHeaderStyled>
         <MobileHeader/>
-      </style.Header>
-      <style.Main>{props.children}</style.Main>
-      <style.Footer>
+      </style.MobileHeaderStyled>
+      <style.MobileMainStyled>{props.children}</style.MobileMainStyled>
+      <style.MobileFooterStyled>
         <MobileFooter />
-      </style.Footer>
+      </style.MobileFooterStyled>
     </body>
   )
 };

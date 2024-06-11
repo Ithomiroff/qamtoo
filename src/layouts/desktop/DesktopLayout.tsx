@@ -9,11 +9,11 @@ import { DesktopFooter } from "@/layouts/desktop/Footer";
 const DesktopLayout = (props: PropsWithChildren<LayoutProps>) => {
 
   return (
-    <style.Body className={props.classNameFont}>
+    <style.DesktopBody className={props.classNameFont}>
       <Toolbar/>
-      <style.Main>{props.children}</style.Main>
-      <DesktopFooter/>
-    </style.Body>
+      <style.DesktopMain>{props.children}</style.DesktopMain>
+      {!props.noFooter && <DesktopFooter/>}
+    </style.DesktopBody>
   )
 };
 

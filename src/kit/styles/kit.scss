@@ -35,3 +35,24 @@ body {
     background-color: var(--light-gray-background);
     height: 100%;
 }
+
+.leaflet-control-attribution {
+    visibility: hidden;
+}
+
+.leaflet-pane {
+    z-index: 1!important;
+}
+
+.custom-marker {
+    width: 20px;
+    height: 20px;
+    background: var(--light-blue);
+    border-radius: 50%;
+    border: 2px solid var(--background);
+}
+
+.leaflet-marker-icon {
+    background: transparent!important;
+    border: none!important;
+}
