@@ -6,6 +6,7 @@ import { Portal } from "@/kit/components/Portal";
 import SearchIcon from "@/assets/icons/search.svg";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { Icon } from "@/kit/components/Icon";
+import { Overlay } from "@/kit/components/Overlay";
 
 const SearchField = () => {
 
@@ -76,7 +77,7 @@ const SearchField = () => {
       </styled.Wrapper>
       {open && (
         <Portal>
-          <styled.Overlay
+          <Overlay
             onClick={() => setOpen(false)}
           />
           <SearchResults

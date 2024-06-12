@@ -14,7 +14,6 @@ import * as eventsSlice from '@/store/events';
 import { Icon } from "@/kit/components/Icon";
 import FiltersIcon from "@/assets/icons/filters.svg";
 
-
 const Toolbar = () => {
 
   const dispatch = useAppDispatch();

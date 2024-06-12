@@ -4,6 +4,10 @@ import { createPortal } from "react-dom";
 const Portal = ({ children }: PropsWithChildren) => {
 
   const createRef = useCallback(() => {
+    if (!document) {
+      return {} as HTMLDivElement;
+    }
+
     const existed = document.querySelector('#q-portal');
 
     if (existed) {

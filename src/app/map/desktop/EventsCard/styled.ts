@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { toRem } from "@/kit/utils/helpers";
+import { Scrollbar } from "@/kit/components/Scrollbar";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -42,26 +43,10 @@ export const Header = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled(Scrollbar)`
   height: 100%;
   overflow: auto;
   padding-left: ${toRem(20)};
-
-  &::-webkit-scrollbar {
-    width: ${toRem(8)};
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: var(--light-gray);
-    border-radius: ${toRem(55)};
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: var(--light-blue);
-    border-radius: ${toRem(55)};
-  }
 `;
 
 export const WrapperCard = styled.div`

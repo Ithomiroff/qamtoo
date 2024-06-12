@@ -6,6 +6,7 @@ import StyledComponentsRegistry from "@/layouts/meta/registry";
 import StoreProvider from "@/app/StoreProvider";
 import { getEvents } from "@/api/search";
 import { InitialStoreData } from "@/common/types";
+import { getCities } from "@/api/static/api";
 
 const ROBOTO_APP_FONT = Roboto({
   subsets: ["cyrillic"],

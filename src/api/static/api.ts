@@ -8,3 +8,7 @@ export const getCategories = (): Promise<CategoryDto[]> => {
 export const getTags = (): Promise<CategoryDto[]> => {
   return clientApi.get<CategoryDto[]>('/tag');
 };
+
+export const getCities = (): Promise<CategoryDto[]> => {
+  return clientApi.get<CategoryDto[]>('/city');
+};

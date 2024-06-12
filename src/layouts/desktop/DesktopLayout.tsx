@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import { Toolbar } from "@/layouts/desktop/Toolbar";
 import * as style from "./styled";
 import { DesktopFooter } from "@/layouts/desktop/Footer";
+import { DesktopModal } from "@/kit/components/DesktopModal";
 
 type Props = {
   noFooter?: boolean;

@@ -18,6 +18,7 @@ export const Inner = styled.div`
   overflow: hidden;
   gap: ${toRem(8)};
   color: var(--background);
+  cursor: pointer;
   span {
     vertical-align: super;
   }

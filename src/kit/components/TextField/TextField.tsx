@@ -2,11 +2,13 @@ import { InputHTMLAttributes, ReactNode } from "react";
 import * as style from './styled';
 import { TextFieldWrapper } from "./styled";
 
-type TextFieldVariant = 'default' | 'outlined';
+type TextFieldVariant = 'default' | 'outlined' | 'grey';
+type TextFieldSize = 'md' | 'sm';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   prefixIcon?: ReactNode;
   variant?: TextFieldVariant;
+  size?: TextFieldSize;
   full?: boolean;
 };
 
@@ -16,6 +18,7 @@ const TextField = (props: Props) => {
     prefixIcon,
     prefix,
     variant = 'default',
+    size = 'md',
     full = false,
     ...rest
   } = props;
@@ -24,6 +27,7 @@ const TextField = (props: Props) => {
     <style.TextFieldWrapper
       $full={full}
       $variant={variant}
+      $size={size}
     >
       {prefixIcon && (
         <style.Prefix>{prefixIcon}</style.Prefix>
@@ -41,5 +45,6 @@ export {
 };
 
 export type {
-  TextFieldVariant
+  TextFieldVariant,
+  TextFieldSize
 };
