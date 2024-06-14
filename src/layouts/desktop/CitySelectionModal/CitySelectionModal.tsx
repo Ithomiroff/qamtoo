@@ -5,6 +5,7 @@ import { TextField } from "@/kit/components/TextField";
 import SearchIcon from "@/assets/icons/search.svg";
 import { Icon } from "@/kit/components/Icon";
 import { useAppDispatch, useAppSelector } from "@/store";
+import { useCitySelection } from "@/hooks/useCitySelection";
 
 const CITIES = [
   'Москва',
@@ -31,22 +32,12 @@ type Props = {
 
 const CitySelectionModal = ({ onClose }: Props) => {
 
-  const [query, setQuery] = useState<string>('');
-
-  const dispatch = useAppDispatch();
-
-  const filtered = useMemo(() => {
-    const result = CITIES.sort((a, b) => a > b ? 1 : -1);
-    if (!query.length) {
-      return result;
-    }
-    return result.filter((item) => item.toLowerCase().indexOf(query.toLowerCase()) > -1);
-  }, [CITIES, query]);
-
-  const handleSelect = (city: string) => {
-    dispatch(commonStore.changeCity(city));
-    onClose();
-  };
+  const {
+    query,
+    setQuery,
+    handleSelect,
+    filteredCities,
+  } = useCitySelection(onClose);
 
   return (
     <>
@@ -65,7 +56,7 @@ const CitySelectionModal = ({ onClose }: Props) => {
       </style.Wrapper>
       <style.Content>
         <style.List>
-          {filtered.map((item, i) => (
+          {filteredCities.map((item, i) => (
             <style.Item
               key={i}
               onClick={() => handleSelect(item)}

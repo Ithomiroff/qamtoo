@@ -5,7 +5,7 @@ import { TextFieldWrapper } from "./styled";
 type TextFieldVariant = 'default' | 'outlined' | 'grey';
 type TextFieldSize = 'md' | 'sm';
 
-type Props = InputHTMLAttributes<HTMLInputElement> & {
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   prefixIcon?: ReactNode;
   variant?: TextFieldVariant;
   size?: TextFieldSize;

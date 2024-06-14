@@ -27,7 +27,7 @@ export const TextFieldWrapper = styled.div<{ $variant: TextFieldVariant; $full: 
     min-width: unset;
   `} 
   
-  ${({ $size }) => $size && css`
+  ${({ $size }) => $size === 'sm' && css`
     height: ${toRem(36)};
   `} 
 `;

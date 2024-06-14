@@ -44,6 +44,7 @@ const HomePage = () => {
           prefixIcon={<SearchIcon/>}
           placeholder="Найти мероприятие"
         />
+
         <Button
           variant="rounded"
           onClick={toggleFilters}
